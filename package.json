@@ -1,0 +1,26 @@
+{
+  "name": "share",
+  "version": "1.0.0",
+  "description": "Simple sharing application",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zakarhino/share.git"
+  },
+  "keywords": [
+    "share",
+    "files"
+  ],
+  "author": "Zak Golding <zak@0x7cf.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zakarhino/share/issues"
+  },
+  "homepage": "https://github.com/zakarhino/share#readme",
+  "dependencies": {
+    "hapi": "^13.4.1"
+  }
+}
