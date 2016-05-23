@@ -1,20 +1,30 @@
 const Hapi = require('hapi');
+const path = require('path');
 
-const server = new Hapi.Server();
-server.connection({
-  host: 'localhost',
-  port: 8000
-});
-
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: function (req, reply) {
-    console.log(req);
-    reply("Hello world!");
+// Configure server connections
+const server = new Hapi.Server({
+  connections: {
+    routes: {
+      files: {
+        relativeTo: path.join(__dirname, '../client')
+      }
+    }
   }
 });
 
+// Set up connection
+server.connection({
+  host: 'localhost',
+  port: 3000
+});
+
+// Configure hapi plugins
+require('./plugins.js')(server);
+
+// Configure server routes
+require('./routes.js')(server);
+
+// Start server
 server.start((err) => {
   if(err) {
     throw err;
